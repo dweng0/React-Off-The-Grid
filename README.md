@@ -29,7 +29,8 @@ Thats it, your application will now save to local storage whenever the redux sto
 ### props
 
 `saveName` - The name of the save file in local storage<br/>
-`store` the redux store
+`store` - the redux store<br/>
+`comparisonFunction` - If the baked in shallow comparison function doesn't do it for you (compares by simple type and references), you can provide your own as a prop, it must return a true or false, which is then used to determine if the component should save the current store state
 
 When saving, the offline mode will add the key `_lastModified` to the object for comparisons.
 
