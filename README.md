@@ -24,14 +24,14 @@ ReactDOM.render(
   </div>, document.getElementById('root'));
 ```
 
-Thats it, your application will now save to local storage
+Thats it, your application will now save to local storage whenever the redux store changes
 
 ### props
 
-`saveName` - The name of the save file in local storage
+`saveName` - The name of the save file in local storage<br/>
 `store` the redux store
 
-When saving, the offline mode will add the key _lastModified to the object for comparisons.
+When saving, the offline mode will add the key `_lastModified` to the object for comparisons.
 
 Offline mode will attempt to load from local storage if the second level store object is empty. if it finds anything using the save name, it will
 dispatch an action with the type: `LOAD_FROM_LOCAL_STORAGE`
