@@ -1,0 +1,23 @@
+{
+  "name": "react-off-the-grid",
+  "version": "1.0.0",
+  "description": "Unopinionated component that stores your redux store in local storage.",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.8.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dweng0/React-Off-The-Grid.git"
+  },
+  "author": "Jay Martin-Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dweng0/React-Off-The-Grid/issues"
+  },
+  "homepage": "https://github.com/dweng0/React-Off-The-Grid#readme"
+}
