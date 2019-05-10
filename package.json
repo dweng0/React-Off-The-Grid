@@ -1,29 +1,32 @@
 {
   "name": "react-off-the-grid",
-  "version": "1.2.0",
-  "description": "Unopinionated component that stores your redux store in local storage.",
-  "main": "index.js",
+  "version": "1.3.0",
+  "main": "src/index.js",
+  "private": false,
   "dependencies": {
-    "@babel/parser": "^7.4.4",
-    "@babel/polyfill": "^7.4.4",
-    "react": "^16.8.6"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "babel-loader": "^8.0.5"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dweng0/React-Off-The-Grid.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "author": "Jay Martin-Smith",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dweng0/React-Off-The-Grid/issues"
-  },
-  "homepage": "https://github.com/dweng0/React-Off-The-Grid#readme"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
