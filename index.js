@@ -1,27 +1,7 @@
 import React from 'react';
+import babel from '@babel/parser';
 
-//function returns an object, but modifies it to include a last modified date this is used to determine when to update local storage
-const grabAllFromLocalStorage = (name) => {
-    let localData = localStorage.getItem(name);
-    return (localData) ? JSON.parse(localData) : {}
-}
 
-/**
-*
-* Add data to local storage
-*
-* The data is wrapped in an object and a _lastModified key is provided
-*
-*/
-const addToLocalStorage = (name, store) => {
-    let localData = grabAllFromLocalStorage(name);
-    const _lastModified = new Date();
-
-    localData = {...localData, ...{ store, _lastModified}};
-    localStorage.setItem(name, JSON.stringify(localData));
-}
-
-const deferred = fn => {setTimeout(fn, 0)}
 
 /**
  * OfflineMode stores the data in an array, the array holds an object that contains your data and a 'lastModified' key
@@ -32,6 +12,31 @@ const deferred = fn => {setTimeout(fn, 0)}
  */
 class OfflineMode extends React.PureComponent {
     _unSub = () => {};
+
+    /**
+     * function returns an object, but modifies it to include a last modified date this is used to determine when to update local storage
+     */
+    grabAllFromLocalStorage = (name) => {
+        let localData = localStorage.getItem(name);
+        return (localData) ? JSON.parse(localData) : {}
+    }
+
+    /**
+    *
+    * Add data to local storage
+    *
+    * The data is wrapped in an object and a _lastModified key is provided
+    *
+    */
+    addToLocalStorage = (name, store) => {
+        let localData = this.grabAllFromLocalStorage(name);
+        const _lastModified = new Date();
+
+        localData = {...localData, ...{ store, _lastModified}};
+        localStorage.setItem(name, JSON.stringify(localData));
+    }
+
+    deferred = fn => {setTimeout(fn, 0)}
 
     maybeSetUnSubscribe = unsub => {
         if(!this._unSub)
@@ -49,7 +54,7 @@ class OfflineMode extends React.PureComponent {
      * compares locally stored file against redux store
      */
     comparisonFunction = (action) => {
-        const item = grabAllFromLocalStorage(this.state.saveName);
+        const item = this.grabAllFromLocalStorage(this.state.saveName);
         const shouldSave = item._lastModified === undefined || !!(item._lastModified !== this.store.getState()._lastModified);
         return shouldSave;
     }
@@ -85,7 +90,7 @@ class OfflineMode extends React.PureComponent {
         const save = this.comparisonFunction();
         if(save)
         {
-            addToLocalStorage(this.state.saveName, this.store.getState());
+            this.addToLocalStorage(this.state.saveName, this.store.getState());
         }
     }
 
@@ -102,10 +107,10 @@ class OfflineMode extends React.PureComponent {
 
         if (storeIsEmpty)
         {
-            const localSave = grabAllFromLocalStorage(this.state.saveName, this.store.getState());
+            const localSave = this.grabAllFromLocalStorage(this.state.saveName);
             if(localSave)
             {
-                deferred(() => {
+                this.deferred(() => {
                     console.log(`Loading ${this.state.saveName} from local storage`);
                     const action = {
                         type: 'LOAD_FROM_LOCAL_STORAGE',
@@ -129,4 +134,5 @@ class OfflineMode extends React.PureComponent {
         return null;
     }
 }
-export default OfflineMode;
+
+export default babel.parse(OfflineMode.toString(), {sourceType:"module", plugins: [ "jsx"] });

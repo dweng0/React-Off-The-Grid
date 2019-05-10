@@ -4,9 +4,15 @@
   "description": "Unopinionated component that stores your redux store in local storage.",
   "main": "index.js",
   "dependencies": {
+    "@babel/parser": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
     "react": "^16.8.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "babel-loader": "^8.0.5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

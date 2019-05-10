@@ -1,12 +1,14 @@
 # React-Off-The-Grid
 Unopinionated component that stores your redux store in local storage.
 
+![Install](resources/images/installoffthegrid.gif)
 
 ## Usage
 
 create the store and provide an instance of it to the component
 
 ```jsx
+
  <OfflineMode saveName="MOOSE_FILE" store={ store } />
 ```
 
