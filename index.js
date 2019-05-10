@@ -31,7 +31,7 @@ const deferred = fn => {setTimeout(fn, 0)}
  * @params {loadAction} function the load action function used to load from localStorage..
  */
 class OfflineMode extends React.PureComponent {
-    _unSub;
+    _unSub = () => {};
 
     maybeSetUnSubscribe = unsub => {
         if(!this._unSub)
