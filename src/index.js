@@ -105,7 +105,7 @@ class OfflineMode extends React.PureComponent {
         if (storeIsEmpty)
         {
             const localSave = this.grabAllFromLocalStorage(this.state.saveName);
-            if(typeof localSave === 'object' && Object.keys(localSave).length > 0 || localSave && localSave.length !== 0)
+            if(typeof localSave === 'object' && Object.keys(localSave).length > 0 || localSave !== 'object' && localSave.length !== 0)
             {
                 this.deferred(() => {
                     console.log(`Loading ${this.state.saveName} from local storage`);
