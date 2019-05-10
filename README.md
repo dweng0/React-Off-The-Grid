@@ -1,7 +1,7 @@
 # React-Off-The-Grid
 Unopinionated component that stores your redux store in local storage.
 
-![Install](public/installoffthegrid.gif)
+![Install](installoffthegrid.gif)
 
 ## Usage
 
