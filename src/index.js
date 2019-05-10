@@ -109,9 +109,10 @@ class OfflineMode extends React.PureComponent {
             {
                 this.deferred(() => {
                     console.log(`Loading ${this.state.saveName} from local storage`);
+                    const payload =(typeof localStorage[this.state.saveName] === "string") ? JSON.parse(localStorage[this.state.saveName]) : localStorage[this.state.saveName];
                     const action = {
                         type: 'LOAD_FROM_LOCAL_STORAGE',
-                        payload: localStorage[this.state.saveName]
+                        payload: payload
                     }
                     this.store.dispatch(action);
                 });
