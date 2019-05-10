@@ -1,6 +1,6 @@
 {
   "name": "react-off-the-grid",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "main": "build/src/index.js",
   "description": "Unopinionated component that stores your redux store in local storage.",
   "peerDependencies": {
